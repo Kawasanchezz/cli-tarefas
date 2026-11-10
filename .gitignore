@@ -1,0 +1,65 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# --- Dados locais do usuário (nunca versionar) ---
+tasks.json
+.tasks-*.tmp
+
+# --- Ferramentas de IA, histórico de chats e sessões ---
+.claude/
+.claude.json
+CLAUDE.md
+CLAUDE.local.md
+.mcp.json
+.mcp.local.json
+.cursor/
+.windsurf/
+.aider*
+.continue/
+.codex/
+.gemini/
+.specstory/
+.cline*
+.roo*
+.kiro/
+.junie/
+chat-export*
+conversation*
+*.jsonl
+
+# --- Credenciais e material de assinatura ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+
+# --- Bancos locais, dumps, logs e temporários ---
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+*.log
+*.bak
+*.old
+*.orig
+*.tmp
+*.dmp
+
+# --- Editor / SO ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
