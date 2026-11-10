@@ -51,11 +51,14 @@ _CAMPOS_TEXTO = ("descricao", "status", "prioridade", "criada_em")
 
 
 def _tarefa_valida(t) -> bool:
+    # A ausencia da chave "data_limite" tambem invalida: listar/ordenar acessa
+    # t["data_limite"] direto, entao aceitar sem a chave gerava KeyError.
     return (
         isinstance(t, dict)
         and type(t.get("id")) is int
         and all(isinstance(t.get(c), str) for c in _CAMPOS_TEXTO)
-        and (t.get("data_limite") is None or isinstance(t["data_limite"], str))
+        and "data_limite" in t
+        and (t["data_limite"] is None or isinstance(t["data_limite"], str))
     )
 
 

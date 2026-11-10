@@ -161,6 +161,15 @@ class TestArquivo(BaseCli):
         self.assertIn("formato", err)
         self.assertNotIn("Traceback", err)
 
+    def test_tarefa_sem_data_limite_e_rejeitada_sem_traceback(self):
+        tarefa = {"id": 1, "descricao": "Estudar", "status": "pendente",
+                  "prioridade": "alta", "criada_em": "2026-01-01T00:00:00"}
+        self._escrever([tarefa], proximo_id=2)
+        codigo, _, err = self.rodar("list")
+        self.assertEqual(codigo, 1)
+        self.assertIn("formato", err)
+        self.assertNotIn("Traceback", err)
+
     def test_ids_duplicados_ou_proximo_id_baixo(self):
         base = {"descricao": "x", "status": "pendente", "prioridade": "media",
                 "criada_em": "2026-01-01T00:00:00", "data_limite": None}
